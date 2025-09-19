@@ -13,13 +13,17 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private int idade;
+    private Integer idade;
+
+    public Autor(String nome, Integer idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
 
     @OneToOne(mappedBy = "autor", cascade = CascadeType.ALL)
     private Biografia biografia;
