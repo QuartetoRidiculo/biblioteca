@@ -37,7 +37,10 @@ public class LivroService {
         return livroRepository.findAll();
     }
 
-
+    //Listagem de livro por id
+    public Livro listLivrosId(Long livroId){
+        return livroRepository.findById(livroId).orElseThrow(()-> new RuntimeException("Livro não encontrado."));
+    }
 
 
 }
