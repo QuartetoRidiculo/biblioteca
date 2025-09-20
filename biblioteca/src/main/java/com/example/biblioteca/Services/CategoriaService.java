@@ -14,9 +14,6 @@ import org.springframework.stereotype.Service;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CategoriaService {
-
-    private String categoria;
-
     @Autowired
     private CategoriaRepository categoriaRepository;
 }

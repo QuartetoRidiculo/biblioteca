@@ -1,10 +1,8 @@
 package com.example.biblioteca.Entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -13,6 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,14 +19,11 @@ public class Autor {
     private String nome;
     private Integer idade;
 
-    public Autor(String nome, Integer idade) {
-        this.nome = nome;
-        this.idade = idade;
-    }
-
     @OneToOne(mappedBy = "autor", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Biografia biografia;
 
-    @OneToMany(mappedBy = "autor", cascade =  CascadeType.ALL)
-    private List<Livro>  livros;
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Livro> livros;
 }
