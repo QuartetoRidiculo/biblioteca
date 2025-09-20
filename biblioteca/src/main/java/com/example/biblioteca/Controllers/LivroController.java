@@ -22,7 +22,12 @@ public class LivroController {
     public Livro addLivro(@RequestBody Livro livroAdicionado){
         return livroService.addLivro(livroAdicionado);
     }
-
+  
+    @PostMapping("/{idLivro}/categorias/{idCategoria}")
+    public void addCategoriaAoLivro(@PathVariable Long idLivro, @PathVariable Long idCategoria) {
+        livroService.addCategoriaAoLivro(idLivro, idCategoria);
+    }
+  
     @DeleteMapping
     public void deleteLivro(@RequestBody Long livroId){
         livroService.deleteLivro(livroId);

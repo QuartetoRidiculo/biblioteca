@@ -21,6 +21,15 @@ public class LivroService {
 
     @Autowired
     private LivroRepository livroRepository;
+    private CategoriaRepository categoriaRepository;
+  
+  public void addCategoriaAoLivro(Long livroId, Long categoriaId){
+        Livro livro = livroRepository.findById(livroId).orElseThrow(() -> new RuntimeException("Livro não encontrado"));
+        Categoria categoria = categoriaRepository.findById(categoriaId).orElseThrow(() -> new RuntimeException("Categoria não encontrada"));
+
+        livro.getCategorias().add(categoria);
+        livroRepository.save(livro);
+    }
 
     //Adicionando o livro
     public Livro addLivro(Livro livroAdicionado){
@@ -41,6 +50,4 @@ public class LivroService {
     public Livro listLivrosId(Long livroId){
         return livroRepository.findById(livroId).orElseThrow(()-> new RuntimeException("Livro não encontrado."));
     }
-
-
 }
