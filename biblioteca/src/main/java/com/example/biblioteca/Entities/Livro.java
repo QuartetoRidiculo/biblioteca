@@ -1,5 +1,6 @@
 package com.example.biblioteca.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class Livro {
 
     @ManyToOne
     @JoinColumn(name = "autor_id", referencedColumnName = "id")
+    @JsonIgnore
     private Autor autor;
 
     @ManyToMany
