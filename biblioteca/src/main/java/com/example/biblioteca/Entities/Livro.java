@@ -1,12 +1,8 @@
 package com.example.biblioteca.Entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.stereotype.Service;
+import lombok.*;
 
 import java.util.List;
 
@@ -24,7 +20,7 @@ public class Livro {
 
     @ManyToOne
     @JoinColumn(name = "autor_id", referencedColumnName = "id")
-    @JsonIgnore
+    @JsonBackReference
     private Autor autor;
 
     @ManyToMany

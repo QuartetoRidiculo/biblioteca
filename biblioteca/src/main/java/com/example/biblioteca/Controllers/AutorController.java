@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/autor")
-public class AutorControler {
+public class AutorController {
     @Autowired
     private AutorService autorService;
 
@@ -22,9 +22,9 @@ public class AutorControler {
     public List<Autor> getAutor() {
         return autorService.getAutor();
     }
+
     @GetMapping("/{id}")
-    public Autor getAutorID(@PathVariable Long id){
+    public Autor getAutorID(@PathVariable Long id) {
         return autorService.getAutorID(id);
     }
-
 }

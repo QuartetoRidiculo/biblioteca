@@ -1,10 +1,8 @@
 package com.example.biblioteca.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "biografia")
@@ -20,5 +18,6 @@ public class Biografia {
 
     @OneToOne
     @JoinColumn(name = "autor_id", referencedColumnName = "id")
+    @JsonBackReference
     private Autor autor;
 }
