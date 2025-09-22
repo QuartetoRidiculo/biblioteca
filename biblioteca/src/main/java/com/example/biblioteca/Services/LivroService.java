@@ -4,24 +4,16 @@ import com.example.biblioteca.Entities.Categoria;
 import com.example.biblioteca.Entities.Livro;
 import com.example.biblioteca.Repositories.CategoriaRepository;
 import com.example.biblioteca.Repositories.LivroRepository;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-
 public class LivroService {
     @Autowired
     private LivroRepository livroRepository;
+    @Autowired
     private CategoriaRepository categoriaRepository;
 
     public void addCategoriaAoLivro(Long livroId, Long categoriaId) {

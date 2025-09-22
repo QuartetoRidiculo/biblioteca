@@ -15,7 +15,7 @@ public class CategoriaController {
 
     @Autowired
     private CategoriaService categoriaService;
-    
+  
     @GetMapping
     public List<Categoria> getCategoria(){
         return categoriaService.getCategoria();

@@ -1,5 +1,6 @@
 package com.example.biblioteca.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,5 +19,6 @@ public class Categoria {
     private String name;
 
     @ManyToMany(mappedBy = "categorias")
+    @JsonBackReference
     private List<Livro> livros;
 }
