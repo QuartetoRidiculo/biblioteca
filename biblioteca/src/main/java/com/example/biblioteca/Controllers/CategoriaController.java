@@ -15,6 +15,7 @@ public class CategoriaController {
 
     @Autowired
     private CategoriaService categoriaService;
+    
     @GetMapping
     public List<Categoria> getCategoria(){
         return categoriaService.getCategoria();
@@ -22,7 +23,6 @@ public class CategoriaController {
 
     @PostMapping
     public void createCategoria(@RequestBody String nome){
-
         categoriaService.createCategoria(nome);
     }
 }
