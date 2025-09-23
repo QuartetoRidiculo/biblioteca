@@ -30,5 +30,6 @@ public class Livro {
             joinColumns = @JoinColumn(name = "livro_id"),
             inverseJoinColumns = @JoinColumn(name = "categoria_id")
     )
+    @JsonManagedReference
     private List<Categoria> categorias;
 }

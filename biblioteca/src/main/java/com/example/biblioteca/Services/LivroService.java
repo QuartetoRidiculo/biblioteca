@@ -13,6 +13,7 @@ import java.util.List;
 public class LivroService {
     @Autowired
     private LivroRepository livroRepository;
+    @Autowired
     private CategoriaRepository categoriaRepository;
 
     public void addCategoriaAoLivro(Long livroId, Long categoriaId) {
