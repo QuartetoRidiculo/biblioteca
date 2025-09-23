@@ -12,15 +12,14 @@ public class CategoriaService {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
-    //Esse metodo categoria está acessando o repoositório e buscando todas as categorias armazenadas nele
     public List<Categoria> getCategoria() {
         return categoriaRepository.findAll();
     }
 
     public Categoria createCategoria(String nome){
         Categoria categoria = new Categoria();
-        categoria.setName(nome);
+        categoria.setNome(nome);
 
-        return  categoriaRepository.save(categoria);
+        return categoriaRepository.save(categoria);
     }
 }
