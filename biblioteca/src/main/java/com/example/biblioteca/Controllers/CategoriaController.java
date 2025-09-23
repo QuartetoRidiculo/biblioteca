@@ -15,14 +15,14 @@ public class CategoriaController {
 
     @Autowired
     private CategoriaService categoriaService;
-    
+
     @GetMapping
     public List<Categoria> getCategoria(){
         return categoriaService.getCategoria();
     }
 
     @PostMapping
-    public void createCategoria(@RequestBody String nome){
-        categoriaService.createCategoria(nome);
+    public Categoria createCategoria(@RequestBody Categoria categoria){
+        return categoriaService.createCategoria(categoria.getNome());
     }
 }
